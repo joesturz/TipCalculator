@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController
-NSInteger currentRow;
+NSInteger currentRow = 0;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -53,12 +53,12 @@ NSInteger currentRow;
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    currentRow = row;
     return [self.array objectAtIndex:row];
 }
 //this is called when the wheel is rotated and settles on a new row
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    currentRow = row;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
     float checkAmount = [[formatter numberFromString:self.field.text] floatValue];
     float percentage = (row+1)*.05f;
