@@ -14,14 +14,44 @@
 
 @implementation InfoViewController
 
+NSInteger currentRowPicker = 0;
+BOOL pickerIsNotHidden = false;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.picker.dataSource = self;
+    self.picker.delegate = self;
+    self.array = [[NSArray alloc] initWithObjects:@"5%",@"10%",@"15%",@"20%",@"25%",@"30%",nil];    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return 6;
+}
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [self.array objectAtIndex:row];
+}
+//this is called when the wheel is rotated and settles on a new row
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    currentRowPicker = row;
 }
 
 -(IBAction)returnFromSegue:(id)sender

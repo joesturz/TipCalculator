@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InfoViewController : UIViewController
+@interface InfoViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
+@property(strong, nonatomic) NSArray *array;
 
 @end
