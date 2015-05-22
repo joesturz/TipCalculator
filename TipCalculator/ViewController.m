@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "InfoViewController.h"
 
 @interface ViewController ()
 
@@ -14,15 +15,23 @@
 
 @implementation ViewController
 NSInteger currentRow = 0;
+BOOL pickerIsNotHidden;
+
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
+
     return YES;
 }
 
 -(IBAction)clickedBackground
 {
     [self.view endEditing:YES];
+//    if (pickerIsNotHidden)
+//    {
+//        [self movePicker:nil];
+//    }
 }
 
 -(IBAction)calculateClicked:(id)sender
@@ -35,11 +44,15 @@ NSInteger currentRow = 0;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     // Initialize Data
-    
+    pickerIsNotHidden = YES;
     // Connect data
     self.picker.dataSource = self;
     self.picker.delegate = self;
     self.array = [[NSArray alloc] initWithObjects:@"5%",@"10%",@"15%",@"20%",@"25%",@"30%",nil];
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -67,9 +80,66 @@ NSInteger currentRow = 0;
     self.tipAmountLabel.text = [NSString stringWithFormat:@"%.2f",tipAmount];
     self.totalLabel.text = [NSString stringWithFormat:@"%.2f",totalAmount];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(IBAction)movePicker:(UIButton*)sender
+{
+    CGRect newFrame = self.picker.frame;
+    if (pickerIsNotHidden)
+    {
+        newFrame.origin.y += 250.0f;
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:1.0f];
+        self.picker.frame = newFrame;
+        [UIView commitAnimations];
+        
+//        [UIView animateWithDuration:1.0f animations:^{
+//            self.picker.frame = newFrame;
+//            [self.view layoutIfNeeded];
+//        }];
+    }
+    else
+    {
+        newFrame.origin.y -= 250.0f;
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:1.0f];
+        self.picker.frame = newFrame;
+        [UIView commitAnimations];
+        
+//        [UIView animateWithDuration:1.0f animations:^{
+//            self.picker.frame = newFrame;
+//            [self.view layoutIfNeeded];
+//        }];
+        
+    }
+    pickerIsNotHidden = !pickerIsNotHidden;
 }
+-(IBAction)keyboardOnEditBegin:(UITextField*) textField
+{
+    pickerIsNotHidden = YES;
+//    UIButton *button;
+//    [self movePicker:button];
+}
+-(IBAction)keyboardOnEditEnd:(UITextField*)textField
+{
+    pickerIsNotHidden = YES;
+//    UIButton *button;
+//    [self movePicker:button];
+}
+
+-(IBAction)clickInfoButton:(id)sender
+{
+    [self performSegueWithIdentifier:@"InfoSegue" sender:sender];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"InfoSegue"]) {
+        
+        // Get destination view
+        [segue destinationViewController];
+
+    }
+}
+
 
 @end
