@@ -51,7 +51,11 @@ BOOL pickerIsNotHidden = false;
 //this is called when the wheel is rotated and settles on a new row
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
+    NSUserDefaults* data = [NSUserDefaults standardUserDefaults];
     currentRowPicker = row;
+    NSLog(@"%ld",currentRowPicker);
+    [data setInteger:currentRowPicker forKey:@"percentValue"];
+    
 }
 
 -(IBAction)returnFromSegue:(id)sender
