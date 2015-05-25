@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @property(strong, nonatomic) NSArray *array;
+@property (strong, nonatomic) IBOutlet UITextField *taxPercentTextField;
+
 
 @end

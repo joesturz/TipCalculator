@@ -29,8 +29,6 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <action selector="calculateClicked:" destination="BYZ-38-t0r" eventType="editingChanged" id="ttI-5o-Cyu"/>
-                                    <action selector="keyboardOnEditBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="F1F-w0-iid"/>
-                                    <action selector="keyboardOnEditEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="BRF-yT-xvH"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="0gP-7y-98f"/>
                                 </connections>
                             </textField>
@@ -52,9 +50,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfO-0N-H58">
-                                <rect key="frame" x="-2" y="329" width="320" height="162"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JoQ-x6-ZQm">
                                 <rect key="frame" x="282" y="526" width="22" height="22"/>
                                 <state key="normal">
@@ -68,7 +63,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Q3Z-9l-z4d" firstAttribute="top" secondItem="heC-gG-vST" secondAttribute="bottom" constant="26" id="037-9q-9q5"/>
-                            <constraint firstItem="kfO-0N-H58" firstAttribute="centerX" secondItem="heC-gG-vST" secondAttribute="centerX" id="7DZ-nt-KNU"/>
                             <constraint firstItem="XWs-7s-Als" firstAttribute="centerX" secondItem="Q3Z-9l-z4d" secondAttribute="centerX" id="9JC-AD-ipC"/>
                             <constraint firstItem="XWs-7s-Als" firstAttribute="top" secondItem="qcK-AW-dLb" secondAttribute="bottom" constant="60" id="FWE-59-0TD"/>
                             <constraint firstItem="Ip1-Ud-YNu" firstAttribute="centerX" secondItem="Q3Z-9l-z4d" secondAttribute="centerX" id="IRr-YZ-DYW"/>
@@ -77,7 +71,6 @@
                             <constraint firstItem="Ip1-Ud-YNu" firstAttribute="top" secondItem="Q3Z-9l-z4d" secondAttribute="bottom" constant="19" id="KSI-99-XH8"/>
                             <constraint firstItem="Ip1-Ud-YNu" firstAttribute="centerX" secondItem="Kj6-aK-LlV" secondAttribute="centerX" id="LHF-Lx-cRk"/>
                             <constraint firstItem="JoQ-x6-ZQm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="LN4-4J-vf0"/>
-                            <constraint firstItem="0Yq-96-NZa" firstAttribute="top" secondItem="kfO-0N-H58" secondAttribute="bottom" constant="77" id="NAJ-ZF-dgL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="heC-gG-vST" secondAttribute="trailing" constant="97" id="ZH7-vd-HO0"/>
                             <constraint firstItem="XWs-7s-Als" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qzx-yU-Sug"/>
                             <constraint firstItem="Kj6-aK-LlV" firstAttribute="top" secondItem="Ip1-Ud-YNu" secondAttribute="bottom" constant="31" id="rQ0-Vu-IN3"/>
@@ -90,7 +83,6 @@
                     <connections>
                         <outlet property="button" destination="Kj6-aK-LlV" id="Udx-sd-FTq"/>
                         <outlet property="field" destination="heC-gG-vST" id="y5O-qw-vf3"/>
-                        <outlet property="picker" destination="kfO-0N-H58" id="E5q-Cg-PC4"/>
                         <outlet property="tipAmountLabel" destination="Ip1-Ud-YNu" id="24E-L1-fCV"/>
                         <outlet property="totalLabel" destination="Q3Z-9l-z4d" id="hAE-Eg-XG6"/>
                         <segue destination="fwB-df-SPV" kind="modal" identifier="InfoSegue" modalTransitionStyle="flipHorizontal" id="cpI-8a-it5"/>
@@ -108,7 +100,7 @@
                         <viewControllerLayoutGuide type="top" id="0h4-xd-fRU"/>
                         <viewControllerLayoutGuide type="bottom" id="AGc-6J-nJq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1Jj-1D-ynz">
+                    <view key="view" contentMode="scaleToFill" id="1Jj-1D-ynz" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -128,18 +120,52 @@
                             <pickerView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeP-dA-7c0">
                                 <rect key="frame" x="0.0" y="327" width="320" height="162"/>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Edu-l0-H1i">
+                                <rect key="frame" x="112" y="147" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="T4Q-AH-DjI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calculateClicked:" destination="fwB-df-SPV" eventType="editingChanged" id="zhG-ps-1k1"/>
+                                    <outlet property="delegate" destination="fwB-df-SPV" id="C49-n2-kh4"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tax:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO6-ym-WgQ">
+                                <rect key="frame" x="73" y="151" width="31" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7n-Ra-DtQ">
+                                <rect key="frame" x="217" y="151" width="18" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="J7n-Ra-DtQ" firstAttribute="top" secondItem="bQA-dh-dCw" secondAttribute="bottom" constant="87" id="2CM-hh-frk"/>
+                            <constraint firstItem="Edu-l0-H1i" firstAttribute="top" secondItem="bQA-dh-dCw" secondAttribute="bottom" constant="83" id="6GN-28-GON"/>
                             <constraint firstItem="bQA-dh-dCw" firstAttribute="leading" secondItem="1Jj-1D-ynz" secondAttribute="leading" id="7Nb-mY-zGA"/>
                             <constraint firstItem="bQA-dh-dCw" firstAttribute="top" secondItem="0h4-xd-fRU" secondAttribute="bottom" id="Fwd-vH-qK4"/>
+                            <constraint firstAttribute="centerX" secondItem="Edu-l0-H1i" secondAttribute="centerX" id="UjB-rd-pkm"/>
                             <constraint firstAttribute="trailing" secondItem="bQA-dh-dCw" secondAttribute="trailing" id="hOa-1L-Rvi"/>
                             <constraint firstAttribute="centerX" secondItem="HeP-dA-7c0" secondAttribute="centerX" id="hj2-h9-aZs"/>
+                            <constraint firstItem="gO6-ym-WgQ" firstAttribute="top" secondItem="bQA-dh-dCw" secondAttribute="bottom" constant="87" id="lI3-Aq-7EF"/>
+                            <constraint firstItem="J7n-Ra-DtQ" firstAttribute="leading" secondItem="Edu-l0-H1i" secondAttribute="trailing" constant="8" id="nls-Pc-tyc"/>
                             <constraint firstItem="AGc-6J-nJq" firstAttribute="top" secondItem="HeP-dA-7c0" secondAttribute="bottom" constant="79" id="wvE-Az-LXj"/>
+                            <constraint firstItem="Edu-l0-H1i" firstAttribute="leading" secondItem="gO6-ym-WgQ" secondAttribute="trailing" constant="8" id="yHn-JH-fVl"/>
                         </constraints>
+                        <connections>
+                            <action selector="clickedBackground" destination="fwB-df-SPV" eventType="touchUpInside" id="xUf-aW-BUQ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="picker" destination="HeP-dA-7c0" id="HjD-16-6dG"/>
+                        <outlet property="taxPercentTextField" destination="Edu-l0-H1i" id="nVT-d4-Euh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0FT-M6-WAt" userLabel="First Responder" sceneMemberID="firstResponder"/>

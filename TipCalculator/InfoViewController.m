@@ -23,11 +23,48 @@ BOOL pickerIsNotHidden = false;
     self.picker.dataSource = self;
     self.picker.delegate = self;
     self.array = [[NSArray alloc] initWithObjects:@"5%",@"10%",@"15%",@"20%",@"25%",@"30%",nil];    // Do any additional setup after loading the view.
+    NSUserDefaults* data = [NSUserDefaults standardUserDefaults];
+    [self.picker selectRow:[data integerForKey:@"percentValue"] inComponent:0 animated:false];
+    self.taxPercentTextField.text = [NSString stringWithFormat:@"%.2f", [data doubleForKey:@"taxPercentage"]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(IBAction)clickedBackground
+{
+    [self.view endEditing:YES];
+}
+-(IBAction)calculateClicked:(id)sender
+{
+    NSUserDefaults* data = [NSUserDefaults standardUserDefaults];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    float tax =[[formatter numberFromString:self.taxPercentTextField.text] floatValue];
+    if (tax > 100.0f || tax < 0.0f)
+    {
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Tax Percent Error"
+                                                                       message:@"The tax rate must be between 0 and 100."
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        if (tax < 0.0f)
+        {
+            [self.taxPercentTextField setText:@"0"];
+        }
+        if (tax > 100.0f)
+        {
+            [self.taxPercentTextField setText:@"100"];
+        }
+    }
+    else
+    {
+        [data setDouble:tax forKey:@"taxPercentage"];
+    }
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
