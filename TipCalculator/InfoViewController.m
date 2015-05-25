@@ -22,7 +22,7 @@ BOOL pickerIsNotHidden = false;
     
     self.picker.dataSource = self;
     self.picker.delegate = self;
-    self.array = [[NSArray alloc] initWithObjects:@"5%",@"10%",@"15%",@"20%",@"25%",@"30%",nil];    // Do any additional setup after loading the view.
+    self.array = [[NSArray alloc] initWithObjects:@"5% - 😕",@"10% - 😐",@"15% - 😊",@"20% - 😀",@"25% - 😃",@"30% - 😆",nil];    // Do any additional setup after loading the view.
     NSUserDefaults* data = [NSUserDefaults standardUserDefaults];
     [self.picker selectRow:[data integerForKey:@"percentValue"] inComponent:0 animated:false];
     self.taxPercentTextField.text = [NSString stringWithFormat:@"%.2f", [data doubleForKey:@"taxPercentage"]];
