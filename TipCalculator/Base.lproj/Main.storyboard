@@ -108,8 +108,8 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem title="Title" id="uxg-ea-5xu">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="0QT-zt-9f3">
+                                    <navigationItem title="Settings" id="uxg-ea-5xu">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="0QT-zt-9f3">
                                             <connections>
                                                 <action selector="returnFromSegue:" destination="fwB-df-SPV" id="y1T-Ot-jaV"/>
                                             </connections>
