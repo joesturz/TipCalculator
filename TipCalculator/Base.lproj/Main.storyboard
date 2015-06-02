@@ -77,12 +77,16 @@
                             <constraint firstAttribute="centerX" secondItem="Ip1-Ud-YNu" secondAttribute="centerX" constant="-67" id="4ca-cP-LIb"/>
                             <constraint firstItem="XWs-7s-Als" firstAttribute="top" secondItem="Ip1-Ud-YNu" secondAttribute="bottom" constant="87" id="7dE-kB-IXa"/>
                             <constraint firstItem="JoQ-x6-ZQm" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ElL-qL-nyw"/>
+                            <constraint firstItem="F5L-Ye-Cfa" firstAttribute="top" secondItem="znS-UQ-V4k" secondAttribute="bottom" constant="26.5" id="KqG-cJ-woj"/>
                             <constraint firstItem="0Yq-96-NZa" firstAttribute="top" secondItem="JoQ-x6-ZQm" secondAttribute="bottom" constant="20" id="W4H-nV-HzW"/>
+                            <constraint firstItem="Q3Z-9l-z4d" firstAttribute="top" secondItem="Ip1-Ud-YNu" secondAttribute="bottom" constant="12.5" id="WDu-Na-Kn0"/>
                             <constraint firstItem="Ip1-Ud-YNu" firstAttribute="top" secondItem="Q3Z-9l-z4d" secondAttribute="bottom" constant="-71" id="cmy-8z-i6l"/>
+                            <constraint firstItem="heC-gG-vST" firstAttribute="top" secondItem="Q3Z-9l-z4d" secondAttribute="bottom" constant="31.5" id="fYr-Dz-Vha"/>
                             <constraint firstItem="Q3Z-9l-z4d" firstAttribute="leading" secondItem="znS-UQ-V4k" secondAttribute="trailing" constant="8" id="kRW-hk-4iu"/>
                             <constraint firstAttribute="centerX" secondItem="Q3Z-9l-z4d" secondAttribute="centerX" constant="-67" id="kxa-Qi-xRO"/>
                             <constraint firstItem="heC-gG-vST" firstAttribute="leading" secondItem="XWs-7s-Als" secondAttribute="trailing" constant="8" id="rch-SY-Hoi"/>
                             <constraint firstAttribute="centerX" secondItem="heC-gG-vST" secondAttribute="centerX" constant="-59" id="txC-mN-ca2"/>
+                            <constraint firstItem="XWs-7s-Als" firstAttribute="top" secondItem="F5L-Ye-Cfa" secondAttribute="bottom" constant="39.5" id="zth-dw-7EB"/>
                         </constraints>
                         <connections>
                             <action selector="clickedBackground" destination="BYZ-38-t0r" eventType="touchUpInside" id="gbF-wT-gKd"/>
@@ -144,7 +148,7 @@
                                 <color key="barTintColor" red="0.47936916349999997" green="0.98915272949999999" blue="0.86212128399999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="Settings" id="uxg-ea-5xu">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="0QT-zt-9f3">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="0QT-zt-9f3">
                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.87" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="returnFromSegue:" destination="fwB-df-SPV" id="y1T-Ot-jaV"/>
