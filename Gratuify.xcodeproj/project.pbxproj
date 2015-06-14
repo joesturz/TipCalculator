@@ -88,12 +88,12 @@
 				D8C673691A0B29BE00F1554B /* AppDelegate.m */,
 				D8C6736B1A0B29BE00F1554B /* ViewController.h */,
 				D8C6736C1A0B29BE00F1554B /* ViewController.m */,
+				D8FED6941AFAD70F007DA13B /* InfoViewController.h */,
+				D8FED6951AFAD70F007DA13B /* InfoViewController.m */,
 				D8C6736E1A0B29BE00F1554B /* Main.storyboard */,
 				D8C673711A0B29BE00F1554B /* Images.xcassets */,
 				D8C673731A0B29BE00F1554B /* LaunchScreen.xib */,
 				D8C673641A0B29BE00F1554B /* Supporting Files */,
-				D8FED6941AFAD70F007DA13B /* InfoViewController.h */,
-				D8FED6951AFAD70F007DA13B /* InfoViewController.m */,
 			);
 			path = TipCalculator;
 			sourceTree = "<group>";

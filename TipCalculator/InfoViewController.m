@@ -26,11 +26,21 @@ BOOL pickerIsNotHidden = false;
     NSUserDefaults* data = [NSUserDefaults standardUserDefaults];
     [self.picker selectRow:[data integerForKey:@"percentValue"] inComponent:0 animated:false];
     self.taxPercentTextField.text = [NSString stringWithFormat:@"%.2f", [data doubleForKey:@"taxPercentage"]];
+    //[self.picker];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSString *title = [self.array objectAtIndex:row];
+    float greyColor = 125.0f;
+    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:greyColor/255.0 green:greyColor/255.0 blue:greyColor/255.0 alpha:1.0]}];
+    
+    return attString;
+    
 }
 -(BOOL)prefersStatusBarHidden{
     return YES;
