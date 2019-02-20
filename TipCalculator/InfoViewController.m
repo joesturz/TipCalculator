@@ -15,7 +15,7 @@
 @implementation InfoViewController
 
 NSInteger currentRowPicker = 0;
-BOOL pickerIsNotHidden = false;
+BOOL _pickerIsNotHidden = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
